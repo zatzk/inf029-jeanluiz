@@ -707,7 +707,7 @@ void listarAlunoSexo(){
 	do{
 		system("clear || cls");
 		printf("Escolha o sexo da busca");
-		printf("1 - Masculino\n2 - Feminino\n3 - Outro\n");
+		printf("\n1 - Masculino\n2 - Feminino\n3 - Outro\n");
 		scanf("%d", &sx);
 		limparBuffer();
 		if(sx == 1){
@@ -751,7 +751,7 @@ void listarProfessorSexo(){
 	do{
 		system("clear || cls");
 		printf("Escolha o sexo da busca");
-		printf("1 - Masculino\n2 - Feminino\n3 - Outro\n");
+		printf("\n1 - Masculino\n2 - Feminino\n3 - Outro\n");
 		scanf("%d", &sx);
 		limparBuffer();
 		if(sx == 1){
@@ -875,7 +875,7 @@ void listarProfessorNome(){
 		fgets(nome, sizeof(nome), stdin);
 		limparBuffer();
 		for(i=0;i<MAX;i++){
-			if(strstr(alunoCad[i].nome, nome)!=NULL){
+			if(strstr(professorCad[i].nome, nome)!=NULL){
 				if(professorCad[i].pf_ativo==1){
 					printf("Nome: %s\n", professorCad[i].nome);
 					printf("Matricula: %s\n", professorCad[i].matricula);
