@@ -118,7 +118,7 @@ void cadastrarAluno(){
     char nome[20],cpf[14], sexo[10], matricula[20];
     int dia,mes,ano;
 	int op,i;
-    int sx;
+    int sx, m;
 
 
     do{
@@ -129,9 +129,34 @@ void cadastrarAluno(){
         printf("\nMatricula: ");
 		fgets(matricula, sizeof(matricula), stdin);
         limparBuffer();
+
+		for(i=0;i<MAX;i++){
+			if(strstr(alunoCad[i].matricula, matricula)!=NULL){
+				printf("\nMatricula ja cadastrada");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
         printf("\nCPF: ");
 		fgets(cpf, sizeof(cpf), stdin);
         limparBuffer();
+		
+		for(i=0;i<MAX;i++){
+			if(strstr(alunoCad[i].cpf, cpf)!=NULL){
+				printf("\nCPF ja cadastrado");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+
         printf("\nSexo: ");
         printf("\n1 - Masculino\n2 - Feminino\n3 - Outro\n");
         scanf("%d", &sx);
@@ -155,6 +180,56 @@ void cadastrarAluno(){
         printf("\nAno: ");
         scanf("%d", &ano);
         limparBuffer();
+		if((ano < 1950)||(ano > 2003)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			if(m==1){
+				return;
+			}
+		}
+
+		if((mes==1)||(mes==3)||(mes==5)||(mes==7)||(mes==8)||(mes==10)||(mes==12) && (dia > 31) || (dia < 1)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			limparBuffer();
+			if(m==1){
+				return;
+			}
+		}
+		if((mes==2) && (dia > 28)|| (dia < 1)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			limparBuffer();
+			if(m==1){
+				return;
+			}
+		}
+		if((mes==2) && (dia ==29)){
+			if(ano%4!=0 && (ano%100==0 || ano%400!=0)){
+				printf("Data invalida");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+		
+		if((mes==4)||(mes==6)||(mes==9)||(mes==11) && (dia > 30)|| (dia < 1)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			limparBuffer();
+			if(m==1){
+				return;
+			}
+		}
+
+
 
         for(i = 0; i < MAX; i++){
 			if(alunoCad[i].al_ativo != 1){
@@ -183,7 +258,7 @@ void cadastrarProfessor(){
     char nome[20],cpf[14], sexo[10], matricula[20];
     int dia,mes,ano;
 	int op,i;
-    int sx;
+    int sx,m;
 
 
     do{
@@ -194,9 +269,35 @@ void cadastrarProfessor(){
         printf("\nMatricula: ");
 		fgets(matricula, sizeof(matricula), stdin);
         limparBuffer();
+
+		for(i=0;i<MAX;i++){
+			if(strstr(professorCad[i].matricula, matricula)!=NULL){
+				printf("\nMatricula ja cadastrada");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+
         printf("\nCPF: ");
 		fgets(cpf, sizeof(cpf), stdin);
         limparBuffer();
+
+		for(i=0;i<MAX;i++){
+			if(strstr(professorCad[i].cpf, cpf)!=NULL){
+				printf("\nCPF ja cadastrado");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+
         printf("\nSexo: ");
         printf("\n1 - Masculino\n2 - Feminino\n3 - Outro\n");
         scanf("%d", &sx);
@@ -220,6 +321,54 @@ void cadastrarProfessor(){
         printf("\nAno: ");
         scanf("%d", &ano);
         limparBuffer();
+
+		if((ano < 1950)||(ano > 2003)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			if(m==1){
+				return;
+			}
+		}
+
+		if((mes==1)||(mes==3)||(mes==5)||(mes==7)||(mes==8)||(mes==10)||(mes==12) && (dia > 31)|| (dia < 1)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			limparBuffer();
+			if(m==1){
+				return;
+			}
+		}
+		if((mes==2) && (dia > 28)|| (dia < 1)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			limparBuffer();
+			if(m==1){
+				return;
+			}
+		}
+		if((mes==2) && (dia ==29)){
+			if(ano%4!=0 && (ano%100==0 || ano%400!=0)){
+				printf("Data invalida");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+		if((mes==4)||(mes==6)||(mes==9)||(mes==11) && (dia > 30)|| (dia < 1)){
+			printf("Data invalida");
+			printf("\nPressione 1 para sair\n");
+			scanf("%d", &m);
+			limparBuffer();
+			if(m==1){
+				return;
+			}
+		}
 
         for(i = 0; i < MAX; i++){
 			if(professorCad[i].pf_ativo != 1){
@@ -248,14 +397,43 @@ void cadastrarDisciplina(){
     
     char disciplina[20],codigo[14];
     int semestre;
-    int op,i;
+    int op,i,m;
     do{
 		system("clear || cls");
         printf("\nDisciplina: ");
         fgets(disciplina, sizeof(disciplina), stdin);
         limparBuffer();
+		for(i=0;i<MAX;i++){
+			if(strstr(disciplinaCad[i].disciplina, disciplina)!=NULL){
+				printf("\nDisciplina ja cadastrada");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+
+
         printf("\nCodigo: ");
         fgets(codigo, sizeof(codigo), stdin);
+		limparBuffer();
+
+		for(i=0;i<MAX;i++){
+			if(strstr(disciplinaCad[i].codigo, codigo)!=NULL){
+				printf("\nCodigo ja cadastrado");
+				printf("\nPressione 1 para sair\n");
+				scanf("%d", &m);
+				limparBuffer();
+				if(m==1){
+					return;
+				}
+			}
+		}
+
+
+
         printf("\nSemestre: ");
         scanf("%d", &semestre);
         for(i=0;i<MAX;i++){
