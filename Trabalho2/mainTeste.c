@@ -89,14 +89,16 @@ void testeExcluirNumeroEspecifico()
     show_log("testeExcluirNumeroEspecifico()");
     printf("%d\n", inserirNumeroEmEstrutura(2, 4) == SUCESSO);
     printf("%d\n", inserirNumeroEmEstrutura(2, -2) == SUCESSO);
-    printf("%d\n", inserirNumeroEmEstrutura(2, 6) == SUCESSO);
-    printf("%d\n", inserirNumeroEmEstrutura(2, 5) == SEM_ESPACO);
+    printf("%d\n", inserirNumeroEmEstrutura(2, 3) == SUCESSO);
+    printf("%d\n", inserirNumeroEmEstrutura(4, 5) == SUCESSO);
+    printf("%d\n", inserirNumeroEmEstrutura(-4, 2) == POSICAO_INVALIDA);
     printf("\n");
     //###  int excluirNumeroEspecifco(int posicao, int valor); ###
     printf("%d\n", excluirNumeroEspecificoDeEstrutura(2, 4) == SUCESSO);
+    printf("%d\n", excluirNumeroEspecificoDeEstrutura(2, 3) == SUCESSO);
     printf("%d\n", excluirNumeroEspecificoDeEstrutura(2, -2) == SUCESSO);
     printf("%d\n", excluirNumeroEspecificoDeEstrutura(2, 6) == SUCESSO);
-    printf("%d\n", excluirNumeroEspecificoDeEstrutura(2, 5) == NUMERO_INEXISTENTE);
+    printf("%d\n", excluirNumeroEspecificoDeEstrutura(4, 5) == SUCESSO);
     printf("%d\n", excluirNumeroEspecificoDeEstrutura(0, 2) == POSICAO_INVALIDA);
 }
 /*
